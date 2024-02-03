@@ -56,10 +56,9 @@ def getData(symbol, year) -> []:
 
 def validateSymbol(sym) -> bool:
     allowed_characters = set("&abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_ ")
-
-    for char in sym:
-        if char not in allowed_characters:
-            return False
+    
+    if any(char not in allowed_characters for char in sym):
+        return False
         
     return True
 
